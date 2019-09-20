@@ -1,0 +1,42 @@
+rm -rf tema2_blas tema2_neopt tema2_opt_m tema2_opt_f
+gcc -Wall -Werror -O0 solver_blas.c main.c -L/usr/lib64/atlas -lsatlas -o tema2_blas
+gcc -Wall -Werror -O0 solver_neopt.c main.c -o tema2_neopt
+gcc -Wall -Werror -O0 solver_opt.c main.c -o tema2_opt_m
+gcc -Wall -Werror -Ofast solver_neopt.c main.c -o tema2_opt_f
+BLAS SOLVER
+Run=./tema2_blas: Test=1: Time=0.038237
+BLAS SOLVER
+Run=./tema2_blas: Test=2: Time=0.549319
+BLAS SOLVER
+Run=./tema2_blas: Test=3: Time=2.188252
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+NEOPT SOLVER
+Run=./tema2_neopt: Test=1: Time=0.888350
+NEOPT SOLVER
+Run=./tema2_neopt: Test=2: Time=12.189554
+NEOPT SOLVER
+Run=./tema2_neopt: Test=3: Time=66.340324
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+OPT SOLVER
+Run=./tema2_opt_m: Test=1: Time=0.214203
+OPT SOLVER
+Run=./tema2_opt_m: Test=2: Time=3.115531
+OPT SOLVER
+Run=./tema2_opt_m: Test=3: Time=12.355913
+<<< Bonus=20p >>>
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=1: Time=0.449353
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=2: Time=2.982454
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=3: Time=16.451660
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK

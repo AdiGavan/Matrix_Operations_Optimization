@@ -1,0 +1,98 @@
+rm -rf tema2_blas tema2_neopt tema2_opt_m tema2_opt_f
+gcc -Wall -Werror -O0 solver_blas.c main.c -L/usr/lib64/atlas -lsatlas -o tema2_blas
+gcc -Wall -Werror -O0 solver_neopt.c main.c -o tema2_neopt
+gcc -Wall -Werror -O0 solver_opt.c main.c -o tema2_opt_m
+gcc -Wall -Werror -Ofast solver_neopt.c main.c -o tema2_opt_f
+NEOPT SOLVER
+Run=./tema2_neopt: Test=1: Time=0.099466
+NEOPT SOLVER
+Run=./tema2_neopt: Test=2: Time=0.901142
+NEOPT SOLVER
+Run=./tema2_neopt: Test=3: Time=2.850153
+NEOPT SOLVER
+Run=./tema2_neopt: Test=4: Time=7.065257
+NEOPT SOLVER
+Run=./tema2_neopt: Test=5: Time=12.282537
+NEOPT SOLVER
+Run=./tema2_neopt: Test=6: Time=24.605560
+NEOPT SOLVER
+Run=./tema2_neopt: Test=7: Time=36.425404
+NEOPT SOLVER
+Run=./tema2_neopt: Test=8: Time=66.263771
+NEOPT SOLVER
+Run=./tema2_neopt: Test=9: Time=85.941055
+NEOPT SOLVER
+Run=./tema2_neopt: Test=10: Time=129.553513
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+BLAS SOLVER
+Run=./tema2_blas: Test=1: Time=0.005361
+BLAS SOLVER
+Run=./tema2_blas: Test=2: Time=0.037449
+BLAS SOLVER
+Run=./tema2_blas: Test=3: Time=0.121156
+BLAS SOLVER
+Run=./tema2_blas: Test=4: Time=0.282592
+BLAS SOLVER
+Run=./tema2_blas: Test=5: Time=0.548567
+BLAS SOLVER
+Run=./tema2_blas: Test=6: Time=0.945947
+BLAS SOLVER
+Run=./tema2_blas: Test=7: Time=1.491791
+BLAS SOLVER
+Run=./tema2_blas: Test=8: Time=2.185826
+BLAS SOLVER
+Run=./tema2_blas: Test=9: Time=2.993570
+BLAS SOLVER
+Run=./tema2_blas: Test=10: Time=3.983938
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+OPT SOLVER
+Run=./tema2_opt_m: Test=1: Time=0.027801
+OPT SOLVER
+Run=./tema2_opt_m: Test=2: Time=0.212354
+OPT SOLVER
+Run=./tema2_opt_m: Test=3: Time=0.703717
+OPT SOLVER
+Run=./tema2_opt_m: Test=4: Time=1.656409
+OPT SOLVER
+Run=./tema2_opt_m: Test=5: Time=3.111831
+OPT SOLVER
+Run=./tema2_opt_m: Test=6: Time=5.489986
+OPT SOLVER
+Run=./tema2_opt_m: Test=7: Time=8.312643
+OPT SOLVER
+Run=./tema2_opt_m: Test=8: Time=12.363539
+OPT SOLVER
+Run=./tema2_opt_m: Test=9: Time=17.790159
+OPT SOLVER
+Run=./tema2_opt_m: Test=10: Time=23.790136
+<<< Bonus=20p >>>
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=1: Time=0.013673
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=2: Time=0.477222
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=3: Time=2.186731
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=4: Time=2.312597
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=5: Time=4.617858
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=6: Time=6.065244
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=7: Time=9.216109
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=8: Time=17.423241
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=9: Time=22.288567
+NEOPT SOLVER
+Run=./tema2_opt_f: Test=10: Time=33.035080
+./compare out1 /export/asc/tema2/out1 OK
+./compare out2 /export/asc/tema2/out2 OK
+./compare out3 /export/asc/tema2/out3 OK

@@ -1,0 +1,56 @@
+build: create_gcc_graph create_icc_graph create_gcc_vs_icc_graph
+
+create_gcc_graph: gcc_results
+	gnuplot -persist -e "set term png; \
+	set output 'gcc_graph.png'; \
+	set xlabel 'Matrix Dimension'; \
+	set ylabel 'Time in sec'; \
+	set xrange[200:2000]; \
+	set yrange [0:140]; \
+	set grid xtics; \
+	set grid ytics; \
+	set grid; \
+	plot \
+	'gcc_results' using 1:2 with lines title 'gcc-blas', \
+	'gcc_results' using 1:3 with lines title 'gcc-neopt', \
+	'gcc_results' using 1:4 with lines title 'gcc-opt-m', \
+	'gcc_results' using 1:5 with lines title 'gcc-opt-f'"
+
+create_icc_graph: icc_results
+	gnuplot -persist -e "set term png; \
+	set output 'icc_graph.png'; \
+	set xlabel 'Matrix Dimension'; \
+	set ylabel 'Time in sec'; \
+	set xrange[200:2000]; \
+	set yrange [0:140]; \
+	set grid xtics; \
+	set grid ytics; \
+	set grid; \
+	plot \
+	'icc_results' using 1:2 with lines title 'icc-blas', \
+	'icc_results' using 1:3 with lines title 'icc-neopt', \
+	'icc_results' using 1:4 with lines title 'icc-opt-m', \
+	'icc_results' using 1:5 with lines title 'icc-opt-f'"
+
+create_gcc_vs_icc_graph: gcc_results icc_results
+	gnuplot -persist -e "set term png; \
+	set output 'gcc_vs_icc_graph.png'; \
+	set xlabel 'Matrix Dimension'; \
+	set ylabel 'Time in sec'; \
+	set xrange[200:2000]; \
+	set yrange [0:140]; \
+	set grid xtics; \
+	set grid ytics; \
+	set grid; \
+	plot \
+	'gcc_results' using 1:2 with lines title 'gcc-blas', \
+	'gcc_results' using 1:3 with lines title 'gcc-neopt', \
+	'gcc_results' using 1:4 with lines title 'gcc-opt-m', \
+	'gcc_results' using 1:5 with lines title 'gcc-opt-f', \
+	'icc_results' using 1:2 with lines title 'icc-blas', \
+	'icc_results' using 1:3 with lines title 'icc-neopt', \
+	'icc_results' using 1:4 with lines title 'icc-opt-m', \
+	'icc_results' using 1:5 with lines title 'icc-opt-f'"
+
+clean:
+	rm *.png
